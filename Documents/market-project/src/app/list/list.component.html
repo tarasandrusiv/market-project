@@ -1,3 +1,16 @@
 <p>
   list works!
 </p>
+
+<div class="listCont">
+    <div class="list">
+      <nav>
+        <ul>
+            <li *ngFor="let car of cars" class="List">
+              <span>{{car.photo}}</span><a>{{car.model}}</a>
+              <button (click)='addChart(car)'></button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>

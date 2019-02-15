@@ -1,3 +1,13 @@
-<p>
-  chart works!
-</p>
+
+<div class="chartCont">
+  <div class="chart">
+    <nav>
+      <ul>
+        <li *ngFor="let chart of charts" 
+        class="chartList">
+          <a>{{charts.model}}</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>

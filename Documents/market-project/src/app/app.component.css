@@ -3,8 +3,21 @@ header{
     width: 100%;
     height: 200px;
 }
+a{
+    color: white;
+}
+a:link{
+    text-decoration: none;
+}
+a:active{
+    text-decoration: none;
+}
+
 footer{
     background-color: black;
     width: 100%;
     height: 200px;
+}
+.rach{
+    color: white;
 }
