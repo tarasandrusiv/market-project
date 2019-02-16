@@ -8,14 +8,28 @@ import { CARS } from '../mock-data/mock-cars';
 })
 export class ListComponent implements OnInit {
   cars = CARS;
+
   
-  constructor() { }
+  
+  constructor() { 
+    
+  }
 
   ngOnInit() {
+    
   }
-  addChart(cars){
-    localStorage.setItem('car', JSON.stringify(cars));
-  }
+  // addChart(car){
+  //   let arr = JSON.parse(localStorage.getItem('car'));
+  //   console.log(arr)
+  //   if(arr) {
+  //     if(arr.find(x=> x.id === car.id)) return
+  //     arr.push(car)
+  //     localStorage.setItem('car', JSON.stringify(arr));
+  //   }else{
+  //     localStorage.setItem('car', JSON.stringify([car]));
+  //   }
+
+  // }
   
   
 }

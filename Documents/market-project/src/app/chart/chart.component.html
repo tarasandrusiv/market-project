@@ -3,11 +3,17 @@
   <div class="chart">
     <nav>
       <ul>
-        <li *ngFor="let chart of charts" 
-        class="chartList">
-          <a>{{charts.model}}</a>
+        <li *ngFor="let chart of arr" 
+         class="chartList">
+         <div>
+            <a><span><img src="" alt=""> </span> {{chart.model}}</a>
+            <input [(ngModel)]='chart.quantity' type='number' value='1'>
+            <div class="deleat">
+              <button (click)=(delItem)></button>
+            </div>
+        </div>
+          
         </li>
       </ul>
     </nav>
-  </div>
 </div>

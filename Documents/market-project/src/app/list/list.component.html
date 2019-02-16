@@ -7,8 +7,8 @@
       <nav>
         <ul>
             <li *ngFor="let car of cars" class="List">
-              <span>{{car.photo}}</span><a>{{car.model}}</a>
-              <button (click)='addChart(car)'></button>
+             <img src=" {{car.photo}}"><a>{{car.model}}</a>
+              <button (click)="addChart(car)">Add for chart</button>
           </li>
         </ul>
       </nav>
