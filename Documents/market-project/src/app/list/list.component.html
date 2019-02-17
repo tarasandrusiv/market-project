@@ -1,3 +1,17 @@
-<p>
-  list works!
-</p>
+<div class="but-cont">
+  <button *ngFor="let mark of marks">{{mark.title}}</button>
+  <button>All</button>
+</div>
+<div class="container">
+  <div class="item" *ngFor="let car of cars">
+    <div class="img-cont">
+      <img src={{car.photo}} alt="">
+    </div>
+    <div  class="text-cont">
+      <h2>{{car.model}}</h2>
+      <p>{{car.description}}</p>
+      <h3>{{car.price}} грн</h3>
+    </div>
+    <button class="details">Details...</button>
+  </div>
+</div>
