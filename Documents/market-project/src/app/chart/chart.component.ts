@@ -13,13 +13,7 @@ export class ChartComponent implements OnInit {
   len = this.cars.length;
   arr: any;
   total = 0;
-  order = [
-    {
-      total: this.total,
-      // quantity: this.arr.price,
-      // model: this.arr.model
-    }
-  ]
+  
   quantityNum = document.getElementById('quantity-num"');
   quantityPlus = document.getElementsByClassName('quantity-arrow-plus');
   quantityMin = document.getElementsByClassName('quantity-arrow-minus');
@@ -76,6 +70,6 @@ export class ChartComponent implements OnInit {
   }
   goToOrder(){
     location.replace('order');
-    localStorage.setItem('buy', JSON.stringify(this.total));
+    // localStorage.setItem('buy', JSON.stringify());
   }
 } 
