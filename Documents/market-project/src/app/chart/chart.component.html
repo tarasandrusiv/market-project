@@ -1,19 +1,31 @@
 
-<div class="chartCont">
-  <div class="chart">
+<div  class="chartCont">
+  <div id="chart">
     <nav>
       <ul>
         <li *ngFor="let chart of arr" 
-         class="chartList">
-         <div>
-            <a><span><img src="" alt=""> </span> {{chart.model}}</a>
-            <input [(ngModel)]='chart.quantity' type='number' value='1'>
-            <div class="deleat">
-              <button (click)=(delItem)></button>
-            </div>
-        </div>
-          
+         class="chartList"
+         id="{{chart.id}}">
+          <a><span><img src="{{chart.photo}}" alt="car"> </span> {{chart.model}}</a>
+          <div>
+            <button class="quantity-arrow-minus" (click)='quantityMinus(chart)'></button>
+            <input [(ngModel)]='chart.quantity' (change)='totalChart(chart)' type='number' min="1" max="3">
+            <button class="quantity-arrow-plus" (click)='quantityPlusp(chart)'></button>
+          </div>
+          <div class="deleat">
+            <button (click)='delItem(chart)'></button>
+          </div>
         </li>
       </ul>
     </nav>
+    
+  </div>
+</div>
+
+<div>
+    <h3>{{total}} грн.</h3>
+    <button (click)='clear()'></button>
+</div>
+<div>
+  <button (click)='goToOrder()'></button>
 </div>
