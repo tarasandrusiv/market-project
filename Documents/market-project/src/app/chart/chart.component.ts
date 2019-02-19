@@ -1,5 +1,6 @@
 import { Component, OnInit} from '@angular/core';
 import { CARS } from '../mock-data/mock-cars';
+import { isNgTemplate, analyzeAndValidateNgModules } from '@angular/compiler';
 
 
 
@@ -29,11 +30,20 @@ export class ChartComponent implements OnInit {
         quantity: 0
       },
       { 
-        id:33, 
-        model: 'Susuki VitaraV3', 
+        id:30, 
+        model: 'Susuki Vitara', 
+        description: 'Двигун: 1.4 BOOSTERJET, Трансмісія: 6-ступенчатая автоматическая коробка передач, ALLGRIP 4WD: 1. Режим Auto; 2. Режим Sport, Освітлення: Денні ходові фари',
+        price: 449900,
+        photo: "./assets/Vitara.png",
+        markId: 100,
+        quantity: 0
+      },
+      { 
+        id:31, 
+        model: 'Susuki SX4', 
         description: 'ALLGRIP 4WD:Система повного привода , Трансмісія: 6-ступенчатая автомат, ALLGRIP 4WD: 1. Режим Auto; 2. Режим Sport',
-        price: 528760,
-        photo: "./assets/VitaraS2.png",
+        price: 4493242,
+        photo: "./assets/SX4.png",
         markId: 100,
         quantity: 0
       }
@@ -45,28 +55,21 @@ export class ChartComponent implements OnInit {
   }
 
   clear(){
-    let li = document.getElementsByClassName('chartList');
-    let div = document.getElementById('chart');
-    localStorage.clear();
-    div.parentNode.removeChild(div);
+    this.arr = localStorage.clear();
+    
+    this.total -= this.total;
   }
-  quantityMinus(chart){
-    if(chart.quantity > 1){
-      this.total -= chart.price; 
-      chart.quantity -= 1;
-    }
-  }
-  quantityPlusp(chart){
-    chart.quantity += 1;
-    this.total += chart.price;
-  }
+ 
   delItem(chart){    
-    let id = document.getElementById(chart.id);
-    if(this.arr.find(x => x.id == chart.id)){
-      localStorage.removeItem('car');
-      id.parentNode.removeChild(id);
-      this.total -= chart.price * chart.quantity; 
-    }
+    this.arr = this.arr.filter(arr => arr != chart);
+    localStorage.setItem('cars', this.arr)
+    this.calculateTotal();
+  }
+
+  calculateTotal(){
+    this.total = 0;
+    this.arr.map(x=> this.total += x.price * x.quantity); // change to reduce
+    // this.total += this.arr.reduce(x => 0 + x.price * x.quantity);
   }
   goToOrder(){
     location.replace('order');

@@ -8,9 +8,9 @@
          id="{{chart.id}}">
           <a><span><img src="{{chart.photo}}" alt="car"> </span> {{chart.model}}</a>
           <div>
-            <button class="quantity-arrow-minus" (click)='quantityMinus(chart)'></button>
-            <input [(ngModel)]='chart.quantity' (change)='totalChart(chart)' type='number' min="1" max="3">
-            <button class="quantity-arrow-plus" (click)='quantityPlusp(chart)'></button>
+            <!-- <button class="quantity-arrow-minus" (click)='quantityMinus(chart)'></button> -->
+            <input [(ngModel)]='chart.quantity' (ngModelChange)="calculateTotal($event)" type='number' min="1" max="3">
+            <!-- <button class="quantity-arrow-plus" (click)='quantityPlusp(chart)'></button> -->
           </div>
           <div class="deleat">
             <button (click)='delItem(chart)'></button>
@@ -29,3 +29,4 @@
 <div>
   <button (click)='goToOrder()'></button>
 </div>
+
