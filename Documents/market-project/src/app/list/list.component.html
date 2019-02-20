@@ -1,9 +1,9 @@
 <div class="but-cont">
-  <button *ngFor="let mark of marks">{{mark.title}}</button>
-  <button>All</button>
+  <button *ngFor="let mark of marks" (click)="sort(mark.id)">{{mark.title}}</button>
+  <button (click)="sort()">All</button>
 </div>
 <div class="container">
-  <div class="item" *ngFor="let car of cars">
+  <div class="item" *ngFor="let car of filteredCars">
     <div class="img-cont">
       <img src={{car.photo}} alt="">
     </div>
@@ -12,6 +12,6 @@
       <p>{{car.description}}</p>
       <h3>{{car.price}} грн</h3>
     </div>
-    <button class="details">Details...</button>
+    <button class="details" (click)="details(car)">Details...</button>
   </div>
 </div>

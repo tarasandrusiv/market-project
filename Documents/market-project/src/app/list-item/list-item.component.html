@@ -1,3 +1,12 @@
-<p>
-  list-item works!
-</p>
+<div class="item" *ngIf="">
+  <div class="img-cont">
+    <img src={{car.photo}} alt="">
+  </div>
+  <div class="text-cont">
+      <h2>{{car.model}}</h2>
+      <p>{{car.description}}</p>
+      <h3>{{car.price}} грн</h3>
+  </div>
+  <button>Back</button>
+  <button>Add to chart</button>
+</div>
