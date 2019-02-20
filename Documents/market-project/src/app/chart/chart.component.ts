@@ -56,8 +56,7 @@ export class ChartComponent implements OnInit {
 
   clear(){
     this.arr = localStorage.clear();
-    
-    this.total -= this.total;
+    this.calculateTotal();
   }
  
   delItem(chart){    
@@ -74,5 +73,8 @@ export class ChartComponent implements OnInit {
   goToOrder(){
     location.replace('order');
     // localStorage.setItem('buy', JSON.stringify());
+  }
+  link(chart){
+    location.replace('item/' + chart.id);
   }
 } 

@@ -7,5 +7,5 @@ import { Component, OnInit} from '@angular/core';
 })
 export class AppComponent {
   title = 'market-project';
-  a = localStorage.length;
+  
 }
