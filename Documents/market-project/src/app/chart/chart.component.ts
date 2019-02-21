@@ -1,7 +1,7 @@
 import { Component, OnInit} from '@angular/core';
 import { CARS } from '../mock-data/mock-cars';
 import { isNgTemplate, analyzeAndValidateNgModules } from '@angular/compiler';
-
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -15,43 +15,52 @@ export class ChartComponent implements OnInit {
   arr: any;
   total = 0;
   
-  quantityNum = document.getElementById('quantity-num"');
-  quantityPlus = document.getElementsByClassName('quantity-arrow-plus');
-  quantityMin = document.getElementsByClassName('quantity-arrow-minus');
-  constructor() { 
+  constructor(
+    private router:Router
+  ) { 
     localStorage.setItem('car', JSON.stringify([
-      { 
-        id:32, 
-        model: 'Susuki VitaraV2', 
-        description: 'ALLGRIP 4WD:Система повного привода , Трансмісія: 6-ступенчатая автомат, ALLGRIP 4WD: 1. Режим Auto; 2. Режим Sport',
-        price: 528000,
-        photo: "./assets/Jimny.png",
-        markId: 100,
-        quantity: 0
-      },
-      { 
-        id:30, 
-        model: 'Susuki Vitara', 
-        description: 'Двигун: 1.4 BOOSTERJET, Трансмісія: 6-ступенчатая автоматическая коробка передач, ALLGRIP 4WD: 1. Режим Auto; 2. Режим Sport, Освітлення: Денні ходові фари',
-        price: 449900,
-        photo: "./assets/Vitara.png",
-        markId: 100,
-        quantity: 0
-      },
-      { 
-        id:31, 
-        model: 'Susuki SX4', 
-        description: 'ALLGRIP 4WD:Система повного привода , Трансмісія: 6-ступенчатая автомат, ALLGRIP 4WD: 1. Режим Auto; 2. Режим Sport',
-        price: 4493242,
-        photo: "./assets/SX4.png",
-        markId: 100,
-        quantity: 0
-      }
+  { 
+      id: 11, 
+      model: "Golf", 
+      description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.",
+      price: 579891,
+      photo: "./assets/Golf.png",
+      markId: 300,
+      quantity: 1
+  },
+  { 
+      id: 12, 
+      model: "Passat", 
+      description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.",
+      price: 878302,
+      photo: "./assets/Passat.png",
+      markId: 300,
+      quantity: 1
+  },
+  { 
+      id: 13, 
+      model: "Polo sedan", 
+      description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.",
+      price: 374679,
+      photo: "./assets/Polo-sedan.png",
+      markId: 300,
+      quantity: 1
+  },
+  { 
+      id: 14, 
+      model: "Touareg", 
+      description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.",
+      price: 1673219,
+      photo: "./assets/Touareg.png",
+      markId: 300,
+      quantity: 1
+  }
     ])); 
   }
 
   ngOnInit() {
     this.arr = JSON.parse(localStorage.getItem('car'));
+    this.calculateTotal();
   }
 
   clear(){
@@ -67,14 +76,13 @@ export class ChartComponent implements OnInit {
 
   calculateTotal(){
     this.total = 0;
-    this.arr.map(x=> this.total += x.price * x.quantity); // change to reduce
-    // this.total += this.arr.reduce(x => 0 + x.price * x.quantity);
+    this.arr.map(x=> this.total += x.price * x.quantity); 
+   
   }
   goToOrder(){
-    location.replace('order');
-    // localStorage.setItem('buy', JSON.stringify());
+    this.router.navigateByUrl('/order');
   }
   link(chart){
-    location.replace('item/' + chart.id);
+    this.router.navigateByUrl('item/' + chart.id)
   }
 } 

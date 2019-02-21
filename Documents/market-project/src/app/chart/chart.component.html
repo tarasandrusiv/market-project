@@ -1,35 +1,37 @@
 
 <div  class="chartCont">
-  <div id="chart">
-    <nav>
-      <ul>
-        <li *ngFor="let chart of arr" 
-         class="chartList"
-         id="{{chart.id}}">
-          <a (click)='link(chart)'>
-            <img src="{{chart.photo}}" alt="car"> 
-            <p>{{chart.model}} </p>
-            <p>Опис: {{chart.description}}</p>
-            <p>Ціна: {{chart.price}} грн.</p>
-          </a>
-          <div class="qunttity">
-            <input [(ngModel)]='chart.quantity' (ngModelChange)="calculateTotal($event)" placeholder="quantitya" type='number' min="1" max="3">
-          </div>
-          <div class="deleat">
-            <button (click)='delItem(chart)'></button>
-          </div>
-        </li>
-      </ul>
-    </nav>
-    
-  </div>
+  <nav>
+    <ul>
+      <li *ngFor="let chart of arr" 
+        class="chartList"
+        id="{{chart.id}}">
+        <a (click)='link(chart)'>
+          <img src="{{chart.photo}}" alt="car"> 
+          <p>Model: {{chart.model}} </p>
+        </a>
+        <div class="textCont">
+          <p>Price: {{chart.price}} грн.</p>
+        </div>
+        <div class="qunttity">
+          <input [(ngModel)]='chart.quantity' 
+          (ngModelChange)="calculateTotal($event)" 
+          placeholder="quantitya" 
+          type='number' 
+          min="1" max="3">
+        </div>
+        <div class="deleat">
+          <button (click)='delItem(chart)'>Deleat</button>
+        </div>
+      </li>
+    </ul>
+  </nav>
 </div>
 
-<div>
-    <h3>Total: {{total}} грн.</h3>
-    <button (click)='clear()'></button>
+<div class="total">
+    <h3>Total: {{total}} &#8372;</h3>
 </div>
-<div>
-  <button (click)='goToOrder()'></button>
+<div class="bottBut">
+  <button (click)='clear()' class="clear">Clear chart</button>
+  <button (click)='goToOrder()' class="goTo">Go to order</button>
 </div>
 
