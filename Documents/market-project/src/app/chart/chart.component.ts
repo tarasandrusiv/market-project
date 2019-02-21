@@ -1,6 +1,8 @@
 import { Component, OnInit} from '@angular/core';
 import { CARS } from '../mock-data/mock-cars';
 import { isNgTemplate, analyzeAndValidateNgModules } from '@angular/compiler';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 
 
@@ -18,7 +20,12 @@ export class ChartComponent implements OnInit {
   quantityNum = document.getElementById('quantity-num"');
   quantityPlus = document.getElementsByClassName('quantity-arrow-plus');
   quantityMin = document.getElementsByClassName('quantity-arrow-minus');
-  constructor() { 
+  constructor(
+    private route: ActivatedRoute,
+    private location: Location,
+    private router: Router
+    ) { 
+    
     localStorage.setItem('car', JSON.stringify([
       { 
         id:32, 
@@ -47,7 +54,7 @@ export class ChartComponent implements OnInit {
         markId: 100,
         quantity: 0
       }
-    ])); 
+    ]))
   }
 
   ngOnInit() {
@@ -72,7 +79,7 @@ export class ChartComponent implements OnInit {
     // this.total += this.arr.reduce(x => 0 + x.price * x.quantity);
   }
   goToOrder(){
-    location.replace('order');
+    this.router.navigateByUrl('/order')
     // localStorage.setItem('buy', JSON.stringify());
   }
 } 
