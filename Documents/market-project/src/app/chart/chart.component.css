@@ -8,7 +8,8 @@ body{
 .chartCont{
   width: 60%;
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: wrap; 
+  justify-content: center;
 }
 
 img{
