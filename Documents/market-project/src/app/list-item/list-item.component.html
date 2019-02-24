@@ -1,12 +1,12 @@
-<div class="item" *ngIf="">
-  <div class="img-cont">
-    <img src={{car.photo}} alt="">
-  </div>
-  <div class="text-cont">
-      <h2>{{car.model}}</h2>
-      <p>{{car.description}}</p>
-      <h3>{{car.price}} грн</h3>
-  </div>
-  <button>Back</button>
-  <button>Add to chart</button>
-</div>
+ <div class="item" *ngIf="car">
+    <div class="img-cont">
+      <img src={{car.photo}} alt="">
+    </div>
+    <div class="text-cont">
+        <h2>{{car.model}}</h2>
+        <p>{{car.description}}</p>
+        <h2>{{car.price}} грн</h2>
+        <button (click)="goBack()">Back</button>
+        <button (click)="addChart(car)">Add to chart</button>
+    </div>
+ </div>
