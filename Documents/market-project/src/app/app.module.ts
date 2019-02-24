@@ -9,6 +9,7 @@ import { ListItemComponent } from './list-item/list-item.component';
 import { ChartComponent } from './chart/chart.component';
 import { OrderComponent } from './order/order.component';
 import { FormsModule } from '@angular/forms';
+import { Subject , AsyncSubject } from 'rxjs';
 
 @NgModule({
   declarations: [
@@ -17,13 +18,14 @@ import { FormsModule } from '@angular/forms';
     ListComponent,
     ListItemComponent,
     ChartComponent,
-    OrderComponent
+    OrderComponent,
     
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

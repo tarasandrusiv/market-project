@@ -2,7 +2,9 @@ import { Component, OnInit} from '@angular/core';
 import { CARS } from '../mock-data/mock-cars';
 import { isNgTemplate, analyzeAndValidateNgModules } from '@angular/compiler';
 import { Router } from '@angular/router';
-
+import { Subject, Subscription, BehaviorSubject } from 'rxjs';
+import { CarService } from '../car.service';
+import { stringify } from 'querystring';
 
 @Component({
   selector: 'app-chart',
@@ -14,10 +16,12 @@ export class ChartComponent implements OnInit {
   len = this.cars.length;
   arr: any;
   total = 0;
+  carSer: CarService;
   
   constructor(
     private router:Router
   ) { 
+    
     localStorage.setItem('car', JSON.stringify([
   { 
       id: 11, 
@@ -61,19 +65,23 @@ export class ChartComponent implements OnInit {
   ngOnInit() {
     this.arr = JSON.parse(localStorage.getItem('car'));
     this.calculateTotal();
+    this.setCoun();
   }
 
   clear(){
     this.arr = localStorage.clear();
     this.calculateTotal();
+    return this.arr;
+    this.setCoun();
   }
  
-  delItem(chart){    
-    this.arr = this.arr.filter(arr => arr != chart);
-    localStorage.setItem('cars', this.arr)
+  delItem(chart){   
+    this.arr = this.arr.filter(arr => arr != chart); 
+    localStorage.setItem('car', this.arr)
     this.calculateTotal();
+    return this.arr;
+    this.setCoun();
   }
-
   calculateTotal(){
     this.total = 0;
     this.arr.map(x=> this.total += x.price * x.quantity); 
@@ -84,5 +92,9 @@ export class ChartComponent implements OnInit {
   }
   link(chart){
     this.router.navigateByUrl('item/' + chart.id)
+  }
+  setCoun(){
+    const counttt = this.arr;
+    return this.carSer.setCount(counttt);
   }
 } 
