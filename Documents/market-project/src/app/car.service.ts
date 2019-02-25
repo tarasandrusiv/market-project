@@ -11,15 +11,14 @@ import { BehaviorSubject , Subject, Observable} from 'rxjs';
 })
 export class CarService {
   
-  coun = new Subject()
-  getCount = this.coun;
+  private count$ = new Subject()
+  getCount = this.count$.asObservable();
 
 
   constructor( ) {
    }
-   
   setCount(data){
-    this.coun.next(data);
+    this.count$.next(data);
   }
 
   getCars():Car[] {

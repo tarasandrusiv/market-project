@@ -16,10 +16,11 @@ export class ChartComponent implements OnInit {
   len = this.cars.length;
   arr: any;
   total = 0;
-  carSer: CarService;
+  
   
   constructor(
-    private router:Router
+    private router:Router,
+    private carSer: CarService
   ) { 
     
     localStorage.setItem('car', JSON.stringify([
@@ -65,22 +66,22 @@ export class ChartComponent implements OnInit {
   ngOnInit() {
     this.arr = JSON.parse(localStorage.getItem('car'));
     this.calculateTotal();
-    this.setCoun();
   }
 
   clear(){
     this.arr = localStorage.clear();
+    this.setCount();
     this.calculateTotal();
-    return this.arr;
-    this.setCoun();
+    return this.arr; 
   }
  
   delItem(chart){   
     this.arr = this.arr.filter(arr => arr != chart); 
-    localStorage.setItem('car', this.arr)
+    localStorage.setItem('car', this.arr);
+    this.setCount();
     this.calculateTotal();
     return this.arr;
-    this.setCoun();
+    
   }
   calculateTotal(){
     this.total = 0;
@@ -93,8 +94,14 @@ export class ChartComponent implements OnInit {
   link(chart){
     this.router.navigateByUrl('item/' + chart.id)
   }
-  setCoun(){
-    const counttt = this.arr;
-    return this.carSer.setCount(counttt);
+  setCount(){
+    let count;
+    if(this.arr != undefined){
+       count = this.arr.length;
+    }else{
+      count = 0;
+    }
+    
+    this.carSer.setCount(count);
   }
 } 
