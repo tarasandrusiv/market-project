@@ -1,5 +1,4 @@
 
-
 header{
     background-color: rgb(53, 51, 51);
     width: 100%;
@@ -21,11 +20,10 @@ footer{
     width: 100%;
     height: 200px;
 }
-<<<<<<< HEAD
 .rach{
     color: white;
 }
-=======
+
 .footer-left p{
   font-size: 20px;
   text-align: center;
@@ -53,10 +51,6 @@ ul li{
     display: inline-block;
     
 }
-
-
-
-
 * {
     font-family: Roboto;
    
@@ -158,4 +152,3 @@ ul li{
       line-height: 1.8;
     }
   }
->>>>>>> 0120a39a23e66adaacd8f864656ef19e739b7589
