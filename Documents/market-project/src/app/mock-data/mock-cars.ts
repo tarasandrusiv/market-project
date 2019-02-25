@@ -15,15 +15,18 @@ export const CARS : Car[] = [
         model: "SX4", 
         description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.",
         price: 488000,
+
         photo: "./assets/SX4.png",
         markId: 100,
         quantity:1
+
     },
     { 
         id: 32, 
         model: "Vitara V2", 
         description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.",
         price: 449000,
+
         photo: "./assets/Vitara-V2.png",
         markId: 100,
         quantity:1
@@ -54,6 +57,7 @@ export const CARS : Car[] = [
         photo: "./assets/Arteon.png",
         markId: 300,
         quantity:1
+
     },
     { 
         id: 11, 
@@ -69,9 +73,11 @@ export const CARS : Car[] = [
         model: "Passat", 
         description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.",
         price: 878302,
+
         photo: "./assets/Passat.png",
         markId: 300,
         quantity:1
+
     },
     { 
         id: 13, 
@@ -81,12 +87,14 @@ export const CARS : Car[] = [
         photo: "./assets/Polo-sedan.png",
         markId: 300,
         quantity:1
+
     },
     { 
         id: 14, 
         model: "Touareg", 
         description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.",
         price: 1673219,
+
         photo: "./assets/Touareg.png",
         markId: 300,
         quantity:1

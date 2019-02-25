@@ -23,5 +23,6 @@ export class AppComponent implements OnInit{
   }
   setCount(){
     return this.count = this.localArr.length;
+
   }
 }

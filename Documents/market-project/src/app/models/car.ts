@@ -6,4 +6,5 @@ export class Car {
     photo: string;
     markId: number;
     quantity?: number;
+
 }
