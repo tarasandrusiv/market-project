@@ -18,9 +18,11 @@ img{
   margin: 5px;
 }
 ul{
+  width: 100%;
   list-style-type: none;
   display: flex;
   flex-wrap: wrap;
+  margin: 0;
 }
 .textCont{
   width: 100%;

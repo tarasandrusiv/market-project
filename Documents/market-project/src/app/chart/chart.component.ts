@@ -36,7 +36,7 @@ export class ChartComponent implements OnInit {
  
   delItem(chart){   
     this.arr = this.arr.filter(arr => arr != chart); 
-    localStorage.setItem('car', this.arr);
+    localStorage.setItem('car', JSON.stringify(this.arr));
     this.setCount();
     this.calculateTotal();
     return this.arr;
@@ -44,13 +44,15 @@ export class ChartComponent implements OnInit {
   }
   calculateTotal(){
     this.total = 0;
-    this.arr.map(x=> this.total += x.price * x.quantity); 
+    if(this.arr != undefined){
+      this.arr.map(x=> this.total += x.price * x.quantity); 
+    }
   }
   goToOrder(){
     this.router.navigateByUrl('/order');
   }
   link(chart){
-    this.router.navigateByUrl('item/' + chart.id)
+    this.router.navigateByUrl(`item/${chart.id}`)
   }
   setCount(){
     let count;

@@ -35,12 +35,10 @@ export class ListItemComponent implements OnInit {
   }
 
   addChart(car: Car) {
-    let arr = JSON.parse(localStorage.getItem("car"));
-    console.log(arr)
-    if (arr) {
-      if (arr.find(x => x.id === car.id)) return;
-      arr.push(car);
-      localStorage.setItem("car", JSON.stringify(arr))
+    if (this.localCount) {
+      if (this.localCount.find(x => x.id === car.id)) return;
+      this.localCount.push(car);
+      localStorage.setItem("car", JSON.stringify(this.localCount))
       this.setCount();
     } else{ 
       localStorage.setItem("car", JSON.stringify([car]))

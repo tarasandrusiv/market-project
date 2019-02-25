@@ -41,6 +41,7 @@ button:active {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 97%;
 }
 
 .img-cont img {
