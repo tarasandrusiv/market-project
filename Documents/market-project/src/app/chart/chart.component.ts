@@ -15,53 +15,11 @@ export class ChartComponent implements OnInit {
   cars = CARS;
   len = this.cars.length;
   arr: any;
-  total = 0;
-  
-  
+  total = 0; 
   constructor(
     private router:Router,
     private carSer: CarService
-  ) { 
-    
-    localStorage.setItem('car', JSON.stringify([
-  { 
-      id: 11, 
-      model: "Golf", 
-      description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.",
-      price: 579891,
-      photo: "./assets/Golf.png",
-      markId: 300,
-      quantity: 1
-  },
-  { 
-      id: 12, 
-      model: "Passat", 
-      description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.",
-      price: 878302,
-      photo: "./assets/Passat.png",
-      markId: 300,
-      quantity: 1
-  },
-  { 
-      id: 13, 
-      model: "Polo sedan", 
-      description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.",
-      price: 374679,
-      photo: "./assets/Polo-sedan.png",
-      markId: 300,
-      quantity: 1
-  },
-  { 
-      id: 14, 
-      model: "Touareg", 
-      description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.",
-      price: 1673219,
-      photo: "./assets/Touareg.png",
-      markId: 300,
-      quantity: 1
-  }
-    ])); 
-  }
+  ) {}
 
   ngOnInit() {
     this.arr = JSON.parse(localStorage.getItem('car'));

@@ -4,6 +4,7 @@ import { MARKS } from '../mock-data/mock-marks';
 import { Car } from '../models/car';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
+import { CarService } from '../car.service';
 
 @Component({
   selector: 'app-list-item',
@@ -11,14 +12,17 @@ import { Location } from '@angular/common';
   styleUrls: ['./list-item.component.css']
 })
 export class ListItemComponent implements OnInit {
-
   car: Car;
-
-  constructor(private route: ActivatedRoute,
-              private location: Location) { }
+  localCount: any;
+  constructor(
+    private route: ActivatedRoute,
+    private location: Location,
+    private carService: CarService
+  ) { }
 
   ngOnInit() {
     this.getCar();
+    this.localCount = JSON.parse(localStorage.getItem('car'));
   }
 
   getCar() {
@@ -37,9 +41,20 @@ export class ListItemComponent implements OnInit {
       if (arr.find(x => x.id === car.id)) return;
       arr.push(car);
       localStorage.setItem("car", JSON.stringify(arr))
+      this.setCount();
     } else{ 
       localStorage.setItem("car", JSON.stringify([car]))
+      this.setCount();
     }
   } 
+  setCount(){
+    let count;
+    if(this.localCount != undefined){
+       count = this.localCount.length;
+    }else{
+      count = 0;
+    }
+    this.carService.setCount(count);
+  }
 
 }

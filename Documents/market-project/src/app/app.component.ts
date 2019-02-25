@@ -10,7 +10,6 @@ import { __values } from 'tslib';
 export class AppComponent implements OnInit{
   localArr : any;
   count: any;
-  countt: any;
   constructor(
     private carService: CarService
   ){}
@@ -22,7 +21,9 @@ export class AppComponent implements OnInit{
     });
   }
   setCount(){
-    return this.count = this.localArr.length;
-
+    if(this.localArr != undefined){
+      return this.count = this.localArr.length;
+    }
+    return this.count = 0;
   }
 }
