@@ -17,6 +17,7 @@ export class CarService {
 
   constructor( ) {
    }
+
   setCount(data){
     this.count$.next(data);
   }
@@ -36,6 +37,4 @@ export class CarService {
   getMarks():Mark[] {
     return MARKS;
   }
-  
-
 }

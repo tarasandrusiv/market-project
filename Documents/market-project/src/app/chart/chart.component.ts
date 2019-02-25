@@ -66,6 +66,7 @@ export class ChartComponent implements OnInit {
   ngOnInit() {
     this.arr = JSON.parse(localStorage.getItem('car'));
     this.calculateTotal();
+    this.setCount();
   }
 
   clear(){
