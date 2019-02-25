@@ -86,7 +86,6 @@ export class ChartComponent implements OnInit {
   calculateTotal(){
     this.total = 0;
     this.arr.map(x=> this.total += x.price * x.quantity); 
-   
   }
   goToOrder(){
     this.router.navigateByUrl('/order');
@@ -101,7 +100,6 @@ export class ChartComponent implements OnInit {
     }else{
       count = 0;
     }
-    
     this.carSer.setCount(count);
   }
 } 

@@ -1,5 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Subject, AsyncSubject, from, Subscription, observable } from "rxjs";
+import { Component, OnInit } from '@angular/core';
 import { CarService } from './car.service';
 import { __values } from 'tslib';
 
@@ -8,17 +7,13 @@ import { __values } from 'tslib';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit , OnDestroy  {
+export class AppComponent implements OnInit{
   localArr : any;
   count: any;
-  carSer: CarService;
   countt: any;
   constructor(
     private carService: CarService
-  ){
-    
-    }
-  
+  ){}
   ngOnInit(){
     this.localArr = JSON.parse(localStorage.getItem('car'));
     this.setCount();
@@ -26,10 +21,7 @@ export class AppComponent implements OnInit , OnDestroy  {
       this.count = x;
     });
   }
-  ngOnDestroy(){
-  }
   setCount(){
     return this.count = this.localArr.length;
   }
-
 }
