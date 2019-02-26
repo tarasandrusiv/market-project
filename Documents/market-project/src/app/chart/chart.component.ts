@@ -1,10 +1,10 @@
 import { Component, OnInit} from '@angular/core';
 import { CARS } from '../mock-data/mock-cars';
 import { isNgTemplate, analyzeAndValidateNgModules } from '@angular/compiler';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Location } from '@angular/common';
-
-
+import { Router } from '@angular/router';
+import { Subject, Subscription, BehaviorSubject } from 'rxjs';
+import { CarService } from '../car.service';
+import { stringify } from 'querystring';
 
 @Component({
   selector: 'app-chart',
@@ -15,71 +15,52 @@ export class ChartComponent implements OnInit {
   cars = CARS;
   len = this.cars.length;
   arr: any;
-  total = 0;
-  
-  quantityNum = document.getElementById('quantity-num"');
-  quantityPlus = document.getElementsByClassName('quantity-arrow-plus');
-  quantityMin = document.getElementsByClassName('quantity-arrow-minus');
+  total = 0; 
   constructor(
-    private route: ActivatedRoute,
-    private location: Location,
-    private router: Router
-    ) { 
-    
-    localStorage.setItem('car', JSON.stringify([
-      { 
-        id:32, 
-        model: 'Susuki VitaraV2', 
-        description: 'ALLGRIP 4WD:Система повного привода , Трансмісія: 6-ступенчатая автомат, ALLGRIP 4WD: 1. Режим Auto; 2. Режим Sport',
-        price: 528000,
-        photo: "./assets/Jimny.png",
-        markId: 100,
-        quantity: 0
-      },
-      { 
-        id:30, 
-        model: 'Susuki Vitara', 
-        description: 'Двигун: 1.4 BOOSTERJET, Трансмісія: 6-ступенчатая автоматическая коробка передач, ALLGRIP 4WD: 1. Режим Auto; 2. Режим Sport, Освітлення: Денні ходові фари',
-        price: 449900,
-        photo: "./assets/Vitara.png",
-        markId: 100,
-        quantity: 0
-      },
-      { 
-        id:31, 
-        model: 'Susuki SX4', 
-        description: 'ALLGRIP 4WD:Система повного привода , Трансмісія: 6-ступенчатая автомат, ALLGRIP 4WD: 1. Режим Auto; 2. Режим Sport',
-        price: 4493242,
-        photo: "./assets/SX4.png",
-        markId: 100,
-        quantity: 0
-      }
-    ]))
-  }
+    private router:Router,
+    private carSer: CarService
+  ) {}
 
   ngOnInit() {
     this.arr = JSON.parse(localStorage.getItem('car'));
+    this.calculateTotal();
+    this.setCount();
   }
 
   clear(){
     this.arr = localStorage.clear();
-    
-    this.total -= this.total;
+    this.setCount();
+    this.calculateTotal();
+    return this.arr; 
   }
  
-  delItem(chart){    
-    this.arr = this.arr.filter(arr => arr != chart);
-    localStorage.setItem('cars', this.arr)
+  delItem(chart){   
+    this.arr = this.arr.filter(arr => arr != chart); 
+    localStorage.setItem('car', JSON.stringify(this.arr));
     this.calculateTotal();
+    this.setCount();
+    return this.arr;
+    
   }
-
   calculateTotal(){
     this.total = 0;
-    this.arr.map(x=> this.total += x.price * x.quantity); // change to reduce
-    // this.total += this.arr.reduce(x => 0 + x.price * x.quantity);
+    if(this.arr){
+      this.arr.map(x=> this.total += x.price * x.quantity);
+      localStorage.setItem('car', JSON.stringify(this.arr)) 
+    }
+    this.setCount();
   }
   goToOrder(){
-    this.router.navigateByUrl('/order')
-    // localStorage.setItem('buy', JSON.stringify());
+    this.router.navigateByUrl('/order');
+  }
+  link(chart){
+    this.router.navigateByUrl(`item/${chart.id}`)
+  }
+  setCount(){
+    let count = 0;
+    if(this.arr){
+      this.arr.forEach(x=> count += x.quantity);
+    }
+    this.carSer.count.next(count);
   }
 } 

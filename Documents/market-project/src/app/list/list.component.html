@@ -1,16 +1,17 @@
-<p>
-  list works!
-</p>
-
-<div class="listCont">
-    <div class="list">
-      <nav>
-        <ul>
-            <li *ngFor="let car of cars" class="List">
-             <img src=" {{car.photo}}"><a>{{car.model}}</a>
-              <button (click)="addChart(car)">Add for chart</button>
-          </li>
-        </ul>
-      </nav>
+<div class="but-cont">
+  <button *ngFor="let mark of marks" (click)="sort(mark.id)">{{mark.title}}</button>
+  <button (click)="sort()">All</button>
+</div>
+<div class="container">
+  <div class="item" *ngFor="let car of filteredCars">
+    <div class="img-cont">
+      <img src={{car.photo}} alt="">
     </div>
+    <div  class="text-cont">
+      <h2>{{car.model}}</h2>
+      <p>{{car.description}}</p>
+      <h3>{{car.price}} &#8372;</h3>
+    </div>
+    <button class="details" (click)="details(car)">Details...</button>
   </div>
+</div>
