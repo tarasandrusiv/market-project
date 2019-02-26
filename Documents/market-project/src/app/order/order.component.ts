@@ -7,9 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OrderComponent implements OnInit {
 
+  arr = [];
   constructor() { }
 
   ngOnInit() {
+
   }
 
 }

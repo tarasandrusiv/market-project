@@ -3,7 +3,7 @@ import { CARS } from './mock-data/mock-cars';
 import { MARKS } from './mock-data/mock-marks';
 import { Car } from './models/car';
 import { Mark } from './models/mark';
-import { BehaviorSubject , Subject, Observable} from 'rxjs';
+import { Subject } from 'rxjs';
 
 
 @Injectable({
@@ -12,15 +12,12 @@ import { BehaviorSubject , Subject, Observable} from 'rxjs';
 export class CarService {
   
   count = new Subject<number>()
-  // getCount = this.count$.asObservable();
-
 
   constructor( ) {
    }
 
-  // setCount(data){
-  //   this.count$.next(data);
-  // }
+ 
+
 
   getCars():Car[] {
     return CARS;
@@ -37,4 +34,5 @@ export class CarService {
   getMarks():Mark[] {
     return MARKS;
   }
+
 }
