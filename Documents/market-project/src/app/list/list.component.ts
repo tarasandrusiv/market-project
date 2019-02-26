@@ -3,9 +3,12 @@ import { CARS } from '../mock-data/mock-cars';
 import { MARKS } from '../mock-data/mock-marks';
 import { Car } from '../models/car';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { ActivatedRoute, Router } from '@angular/router';
 
 
+=======
+>>>>>>> 5f3545263be2e31e7531ab1893519dd4b6a0d6ae
 =======
 >>>>>>> 5f3545263be2e31e7531ab1893519dd4b6a0d6ae
 
@@ -19,6 +22,7 @@ export class ListComponent implements OnInit {
   cars = CARS;
   filteredCars;
 <<<<<<< HEAD
+<<<<<<< HEAD
   constructor(
     private route: ActivatedRoute, 
     private router: Router
@@ -28,6 +32,12 @@ export class ListComponent implements OnInit {
   }
   sort(markId: number) {
     this.filteredCars = markId ? this.cars.filter(x=> x.markId === markId) : this.cars;
+=======
+  constructor() { }
+
+  ngOnInit() {
+    this.filteredCars = this.cars;
+>>>>>>> 5f3545263be2e31e7531ab1893519dd4b6a0d6ae
   }
   details(car: Car) {
     this.router.navigateByUrl(`/item/${car.id}`)
@@ -38,10 +48,13 @@ export class ListComponent implements OnInit {
 =======
   constructor() { }
 
+<<<<<<< HEAD
   ngOnInit() {
     this.filteredCars = this.cars;
   }
 
+=======
+>>>>>>> 5f3545263be2e31e7531ab1893519dd4b6a0d6ae
   details(car: Car) {
     location.replace("/item/" + car.id);
   }
@@ -51,5 +64,9 @@ export class ListComponent implements OnInit {
   }
 
 
+<<<<<<< HEAD
+}
+>>>>>>> 5f3545263be2e31e7531ab1893519dd4b6a0d6ae
+=======
 }
 >>>>>>> 5f3545263be2e31e7531ab1893519dd4b6a0d6ae

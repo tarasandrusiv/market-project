@@ -34,5 +34,4 @@ export class CarService {
   getMarks():Mark[] {
     return MARKS;
   }
-
 }

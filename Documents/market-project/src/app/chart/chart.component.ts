@@ -87,9 +87,15 @@ export class ChartComponent implements OnInit {
   delItem(chart){   
     this.arr = this.arr.filter(arr => arr != chart); 
 <<<<<<< HEAD
+<<<<<<< HEAD
     localStorage.setItem('car', JSON.stringify(this.arr));
     this.calculateTotal();
     this.setCount();
+=======
+    localStorage.setItem('car', this.arr);
+    this.setCount();
+    this.calculateTotal();
+>>>>>>> 5f3545263be2e31e7531ab1893519dd4b6a0d6ae
 =======
     localStorage.setItem('car', this.arr);
     this.setCount();
@@ -101,6 +107,7 @@ export class ChartComponent implements OnInit {
   calculateTotal(){
     this.total = 0;
 <<<<<<< HEAD
+<<<<<<< HEAD
     if(this.arr){
       this.arr.map(x=> this.total += x.price * x.quantity);
       localStorage.setItem('car', JSON.stringify(this.arr)) 
@@ -109,11 +116,15 @@ export class ChartComponent implements OnInit {
 =======
     this.arr.map(x=> this.total += x.price * x.quantity); 
 >>>>>>> 5f3545263be2e31e7531ab1893519dd4b6a0d6ae
+=======
+    this.arr.map(x=> this.total += x.price * x.quantity); 
+>>>>>>> 5f3545263be2e31e7531ab1893519dd4b6a0d6ae
   }
   goToOrder(){
     this.router.navigateByUrl('/order');
   }
   link(chart){
+<<<<<<< HEAD
 <<<<<<< HEAD
     this.router.navigateByUrl(`item/${chart.id}`)
   }
@@ -124,6 +135,8 @@ export class ChartComponent implements OnInit {
     }
     this.carSer.count.next(count);
 =======
+=======
+>>>>>>> 5f3545263be2e31e7531ab1893519dd4b6a0d6ae
     this.router.navigateByUrl('item/' + chart.id)
   }
   setCount(){
@@ -134,6 +147,9 @@ export class ChartComponent implements OnInit {
       count = 0;
     }
     this.carSer.setCount(count);
+<<<<<<< HEAD
+>>>>>>> 5f3545263be2e31e7531ab1893519dd4b6a0d6ae
+=======
 >>>>>>> 5f3545263be2e31e7531ab1893519dd4b6a0d6ae
   }
 } 
