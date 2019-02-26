@@ -11,20 +11,5 @@ export class CarService {
 
   constructor() { }
 
-  getCars():Car[] {
-    return CARS;
-  }
-
-  getCarById(id: number):Car {
-    return CARS.find(x=> x.id === id);
-  }
-
-  getCarByMarkId(id: number):Car {
-    return CARS.find(x=> x.markId === id);
-  }
-
-  getMarks():Mark[] {
-    return MARKS;
-  }
 
 }
