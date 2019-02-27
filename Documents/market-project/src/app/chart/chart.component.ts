@@ -18,11 +18,13 @@ export class ChartComponent implements OnInit {
     private router:Router,
     private carSer: CarService
   ) {}
+
   ngOnInit() {
     this.arr = JSON.parse(localStorage.getItem('car'));
     this.calculateTotal();
     this.setCount();
   }
+  
   calculateTotal(){
     this.total = 0;
     if(this.arr){
