@@ -6,7 +6,7 @@ export const CARS : Car[] = [
         model: "Vitara", 
         description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.",
         price: 528000,
-        photo: "./assets/Vitara.png",
+        photo: "./assets/img/Vitara.png",
         markId: 100,
         quantity:1
     },
@@ -15,7 +15,7 @@ export const CARS : Car[] = [
         model: "SX4", 
         description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.",
         price: 488000,
-        photo: "./assets/SX4.png",
+        photo: "./assets/img/SX4.png",
         markId: 100,
         quantity:1
     },
@@ -24,7 +24,7 @@ export const CARS : Car[] = [
         model: "Vitara V2", 
         description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.",
         price: 449000,
-        photo: "./assets/Vitara-V2.png",
+        photo: "./assets/img/Vitara-V2.png",
         markId: 100,
         quantity:1
     },
@@ -33,7 +33,7 @@ export const CARS : Car[] = [
         model: "Vitara S", 
         description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.",
         price: 658800,
-        photo: "./assets/Vitara-S.png",
+        photo: "./assets/img/Vitara-S.png",
         markId: 100,
         quantity:1
     },
@@ -42,7 +42,7 @@ export const CARS : Car[] = [
         model: "Jimny", 
         description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.",
         price: 485000,
-        photo: "./assets/Jimny.png",
+        photo: "./assets/img/Jimny.png",
         markId: 100,
         quantity:1
     },
@@ -51,7 +51,7 @@ export const CARS : Car[] = [
         model: "Arteon", 
         description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.",
         price: 1374841,
-        photo: "./assets/Arteon.png",
+        photo: "./assets/img/Arteon.png",
         markId: 300,
         quantity:1
 
@@ -61,7 +61,7 @@ export const CARS : Car[] = [
         model: "Golf", 
         description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.",
         price: 579891,
-        photo: "./assets/Golf.png",
+        photo: "./assets/img/Golf.png",
         markId: 300,
         quantity:1
     },
@@ -70,7 +70,7 @@ export const CARS : Car[] = [
         model: "Passat", 
         description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.",
         price: 878302,
-        photo: "./assets/Passat.png",
+        photo: "./assets/img/Passat.png",
         markId: 300,
         quantity:1
 
@@ -80,7 +80,7 @@ export const CARS : Car[] = [
         model: "Polo sedan", 
         description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.",
         price: 374679,
-        photo: "./assets/Polo-sedan.png",
+        photo: "./assets/img/Polo-sedan.png",
         markId: 300,
         quantity:1
 
@@ -90,7 +90,7 @@ export const CARS : Car[] = [
         model: "Touareg", 
         description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.",
         price: 1673219,
-        photo: "./assets/Touareg.png",
+        photo: "./assets/img/Touareg.png",
         markId: 300,
         quantity:1
     },
@@ -99,7 +99,7 @@ export const CARS : Car[] = [
         model: "X5", 
         description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.",
         price: 1797292, 
-        photo: "./assets/X5.png", 
+        photo: "./assets/img/X5.png", 
         markId: 200,
         quantity:1
     },
@@ -108,7 +108,7 @@ export const CARS : Car[] = [
         model: "M2", 
         description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.",
         price: 1783311, 
-        photo: "./assets/M2.png", 
+        photo: "./assets/img/M2.png", 
         markId: 200,
         quantity:1
     },
@@ -117,7 +117,7 @@ export const CARS : Car[] = [
         model: "M240i", 
         description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.",
         price: 1448037, 
-        photo: "./assets/M240i.png", 
+        photo: "./assets/img/M240i.png", 
         markId: 200,
         quantity:1
     },
@@ -126,7 +126,7 @@ export const CARS : Car[] = [
         model: "Gran Tourer", 
         description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.",
         price: 842038, 
-        photo: "./assets/Gran-Tourer.png", 
+        photo: "./assets/img/Gran-Tourer.png", 
         markId: 200,
         quantity:1
     },
@@ -135,7 +135,7 @@ export const CARS : Car[] = [
         model: "M140i", 
         description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.",
         price: 1274712, 
-        photo: "./assets/M140i.png", 
+        photo: "./assets/img/M140i.png", 
         markId: 200,
         quantity:1
     }

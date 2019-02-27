@@ -24,13 +24,30 @@ export class ChartComponent implements OnInit {
     this.calculateTotal();
     this.setCount();
   }
-  
+
   calculateTotal(){
     this.total = 0;
     if(this.arr){
       this.arr.map(x=> this.total += x.price * x.quantity);
-      localStorage.setItem('car', JSON.stringify(this.arr)) }
+      localStorage.setItem('car', JSON.stringify(this.arr)) 
+    }
+    this.setCount();
   }
+  clear(){
+    this.arr = localStorage.clear();
+    this.setCount();
+    this.calculateTotal();
+    return this.arr; 
+  }
+ 
+  delItem(chart){   
+    this.arr = this.arr.filter(arr => arr != chart); 
+    localStorage.setItem('car', JSON.stringify(this.arr));
+    this.setCount();
+    this.calculateTotal();
+    return this.arr;  
+  }
+
   goToOrder(){
     this.router.navigateByUrl('/order');
   }
@@ -40,8 +57,9 @@ export class ChartComponent implements OnInit {
   setCount(){
     let count = 0;
     if(this.arr){
-      this.arr.forEach(x=> count += x.quantity);
+      this.arr.forEach(x => count += x.quantity);
       this.carSer.count.next(count);
     }
+    this.carSer.count.next(count);
   } 
 }

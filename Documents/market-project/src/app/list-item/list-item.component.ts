@@ -4,7 +4,6 @@ import { MARKS } from '../mock-data/mock-marks';
 import { Car } from '../models/car';
 import { ActivatedRoute , Router } from '@angular/router';
 import { Location } from '@angular/common';
-import { CarService } from '../car.service';
 
 @Component({
   selector: 'app-list-item',
@@ -12,18 +11,17 @@ import { CarService } from '../car.service';
   styleUrls: ['./list-item.component.css']
 })
 export class ListItemComponent implements OnInit {
+
   car: Car;
-  localCount: any;
+
   constructor(
-    private router: Router,
+    private route: ActivatedRoute,
     private location: Location,
-    private carService: CarService,
-    private route: ActivatedRoute
-  ) { }
+    private router: Router
+    ) { }
 
   ngOnInit() {
     this.getCar();
-    this.localCount = JSON.parse(localStorage.getItem('car'));
   }
 
   getCar() {
@@ -36,17 +34,18 @@ export class ListItemComponent implements OnInit {
   }
 
   addChart(car: Car) {
-    if (this.localCount) {
-      if (this.localCount.find(x => x.id === car.id)){
-        this.router.navigateByUrl(`/chart`);
+    let arr = JSON.parse(localStorage.getItem("car"));
+    console.log(arr)
+    if (arr) {
+      if (arr.find(x => x.id === car.id)) {
+        this.router.navigateByUrl('/chart');
         return;}
-      this.localCount.push(car);
-      localStorage.setItem("car", JSON.stringify(this.localCount));
+      arr.push(car);
+      localStorage.setItem("car", JSON.stringify(arr))
     } else{ 
-      localStorage.setItem("car", JSON.stringify([car]));
+      localStorage.setItem("car", JSON.stringify([car]))
     }
-    this.router.navigateByUrl(`/chart`);
+    this.router.navigateByUrl('/chart');
   } 
-  
 
 }

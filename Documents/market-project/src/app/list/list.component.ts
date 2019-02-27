@@ -20,6 +20,10 @@ export class ListComponent implements OnInit {
   ngOnInit() {
     this.filteredCars = this.cars;
   }
+
+  details(car: Car) {
+    this.router.navigateByUrl(`/item/${car.id}`)
+  }
   sort(markId: number) {
     this.filteredCars = markId ? this.cars.filter(x=> x.markId === markId) : this.cars;  
   }
