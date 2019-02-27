@@ -21,9 +21,6 @@ export class ListComponent implements OnInit {
     this.filteredCars = this.cars;
   }
   sort(markId: number) {
-    this.filteredCars = markId ? this.cars.filter(x=> x.markId === markId) : this.cars;
-  
-
-  
-}
+    this.filteredCars = markId ? this.cars.filter(x=> x.markId === markId) : this.cars;  
+  }
 }
