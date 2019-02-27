@@ -1,10 +1,8 @@
 import { Component, OnInit} from '@angular/core';
 import { CARS } from '../mock-data/mock-cars';
-import { isNgTemplate, analyzeAndValidateNgModules } from '@angular/compiler';
 import { Router } from '@angular/router';
-import { Subject, Subscription, BehaviorSubject } from 'rxjs';
 import { CarService } from '../car.service';
-import { stringify } from 'querystring';
+
 
 @Component({
   selector: 'app-chart',
