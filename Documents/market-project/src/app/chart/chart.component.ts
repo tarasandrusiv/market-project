@@ -20,33 +20,16 @@ export class ChartComponent implements OnInit {
     private router:Router,
     private carSer: CarService
   ) {}
-
   ngOnInit() {
     this.arr = JSON.parse(localStorage.getItem('car'));
     this.calculateTotal();
     this.setCount();
   }
-
-  clear(){
-    this.arr = localStorage.clear();
-    this.setCount();
-    this.calculateTotal();
-    return this.arr; 
-  }
- 
-  delItem(chart){   
-    this.arr = this.arr.filter(arr => arr != chart); 
-    localStorage.setItem('car', JSON.stringify(this.arr));
-    this.setCount();
-    this.calculateTotal();
-    return this.arr;
-    
-  }
   calculateTotal(){
     this.total = 0;
-    if(this.arr != undefined){
-      this.arr.map(x=> this.total += x.price * x.quantity); 
-    }
+    if(this.arr){
+      this.arr.map(x=> this.total += x.price * x.quantity);
+      localStorage.setItem('car', JSON.stringify(this.arr)) }
   }
   goToOrder(){
     this.router.navigateByUrl('/order');
@@ -55,12 +38,10 @@ export class ChartComponent implements OnInit {
     this.router.navigateByUrl(`item/${chart.id}`)
   }
   setCount(){
-    let count;
-    if(this.arr != undefined){
-       count = this.arr.length;
-    }else{
-      count = 0;
+    let count = 0;
+    if(this.arr){
+      this.arr.forEach(x=> count += x.quantity);
+    this.carSer.count.next(count);
     }
-    this.carSer.setCount(count);
-  }
-} 
+  } 
+}

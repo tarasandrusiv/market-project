@@ -4,8 +4,6 @@ import { MARKS } from '../mock-data/mock-marks';
 import { Car } from '../models/car';
 import { ActivatedRoute, Router } from '@angular/router';
 
-
-
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
@@ -24,10 +22,8 @@ export class ListComponent implements OnInit {
   }
   sort(markId: number) {
     this.filteredCars = markId ? this.cars.filter(x=> x.markId === markId) : this.cars;
-  }
-  details(car: Car) {
-    this.router.navigateByUrl(`/item/${car.id}`)
-  }
+  
+
   
 }
-
+}
