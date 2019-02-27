@@ -41,7 +41,7 @@ export class ChartComponent implements OnInit {
     let count = 0;
     if(this.arr){
       this.arr.forEach(x=> count += x.quantity);
-    this.carSer.count.next(count);
+      this.carSer.count.next(count);
     }
   } 
 }
